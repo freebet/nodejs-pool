@@ -20,16 +20,15 @@ sudo mv libg* /usr/lib/
 cd ~
 sudo systemctl enable ntp
 cd /usr/local/src
-sudo git clone https://github.com/electroneum/electroneum.git
-cd electroneum
-sudo git checkout
-curl https://raw.githubusercontent.com/arqtras/nodejs-pool/master/deployment/electroneum_daemon.patch | sudo git apply -v
+sudo git clone https://github.com/graft-project/GraftNetwork.git
+cd GraftNetwork
 sudo make -j$(nproc)
-sudo cp ~/nodejs-pool/deployment/electroneum.service /lib/systemd/system/
-sudo useradd -m electroneumdaemon -d /home/electroneumdaemon
+sudo cp ~/nodejs-pool/deployment/graft.service /lib/systemd/system/
+sudo useradd -m graftdaemon -d /home/graftdaemon
+BLOCKCHAIN_DOWNLOAD_DIR=$(sudo -u graftdaemon mktemp -d)
 sudo systemctl daemon-reload
-sudo systemctl enable electroneum
-sudo systemctl start electroneum
+sudo systemctl enable graft
+sudo systemctl start graft
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
 source ~/.nvm/nvm.sh
 nvm install v8.9.3
