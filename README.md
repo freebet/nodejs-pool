@@ -272,6 +272,11 @@ MoneroOcean for His great job with pool system
 ```
 My pools:
 ================
+* https://www.graft.pw
+* https://www.edollar.co.in
+
+ArqTras's Pools:
+================
 * https://supportaeon.com
 * https://supportetn.eu
 * https://graft.supportcryptonight.com
