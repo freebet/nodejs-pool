@@ -12,7 +12,7 @@ sudo apt-get update
 sudo DEBIAN_FRONTEND=noninteractive apt-get -y upgrade
 sudo DEBIAN_FRONTEND=noninteractive apt-get -y install git python-virtualenv python3-virtualenv curl ntp build-essential screen cmake pkg-config libboost-all-dev libevent-dev libunbound-dev libminiupnpc-dev libunwind8-dev liblzma-dev libldns-dev libexpat1-dev libgtest-dev libzmq3-dev
 cd ~
-git clone https://github.com/arqtras/nodejs-pool.git  # Change this depending on how the deployment goes.
+git clone https://github.com/malbit/www.Graft.pw_nodejs-pool_v7.git nodejs-pool  # Change this depending on how the deployment goes.
 cd /usr/src/gtest
 sudo cmake .
 sudo make
