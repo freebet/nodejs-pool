@@ -16,7 +16,7 @@ sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again p
 echo -e "[client]\nuser=root\npassword=$ROOT_SQL_PASS" | sudo tee /root/.my.cnf
 sudo DEBIAN_FRONTEND=noninteractive apt-get -y install git python-virtualenv python3-virtualenv curl ntp build-essential screen cmake pkg-config libboost-all-dev libevent-dev libunbound-dev libminiupnpc-dev libunwind8-dev liblzma-dev libldns-dev libexpat1-dev libgtest-dev mysql-server lmdb-utils libzmq3-dev
 cd ~
-git clone https://github.com/malbit/www.Graft.pw_nodejs-pool_v7.git nodejs-pool  # Change this depending on how the deployment goes.
+git clone https://github.com/freebet/nodejs-pool.git nodejs-pool  # Change this depending on how the deployment goes.
 cd /usr/src/gtest
 sudo cmake .
 sudo make
@@ -24,15 +24,16 @@ sudo mv libg* /usr/lib/
 cd ~
 sudo systemctl enable ntp
 cd /usr/local/src
-sudo git clone https://github.com/graft-project/GraftNetwork.git
-cd GraftNetwork
+sudo git clone https://github.com/myztic-project/myztic.git
+cd myztic
 sudo make -j$(nproc)
-sudo cp ~/nodejs-pool/deployment/graft.service /lib/systemd/system/
-sudo useradd -m graftdaemon -d /home/graftdaemon
-BLOCKCHAIN_DOWNLOAD_DIR=$(sudo -u graftdaemon mktemp -d)
+sudo cp ~/nodejs-pool/deployment/myztic.service /lib/systemd/system/
+sudo useradd -m myztic
+daemon -d /home/myzticdaemon
+BLOCKCHAIN_DOWNLOAD_DIR=$(sudo -u myzticdaemon mktemp -d)
 sudo systemctl daemon-reload
-sudo systemctl enable graft
-sudo systemctl start graft
+sudo systemctl enable myztic
+sudo systemctl start myztic
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
 source ~/.nvm/nvm.sh
 nvm install v8.9.3
