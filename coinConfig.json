@@ -1,10 +1,10 @@
 {
-    "grf": {
-   "funcFile": "./lib/coins/grf.js",
-   "paymentFile": "./payment_systems/grf.js",
-   "sigDigits": 10000000000,
-   "name": "Graft",
+    "mzt": {
+   "funcFile": "./lib/coins/mzt.js",
+   "paymentFile": "./payment_systems/mzt.js",
+   "sigDigits": 1000000000,
+   "name": "Myztic",
    "mixIn": 5,
-   "shortCode": "GRF"
+   "shortCode": "MZT"
 }
 }
