@@ -1,6 +1,6 @@
 CREATE DATABASE pool;
-GRANT ALL ON pool.* TO pool@`127.0.0.1` IDENTIFIED BY '23r34rweferf23rfwef3';
-GRANT ALL ON pool.* TO pool@localhost IDENTIFIED BY '23r34rweferf23rfwef3';
+GRANT ALL ON pool.* TO pool@`127.0.0.1` IDENTIFIED BY '2543fwfw4rvg4r23ref23';
+GRANT ALL ON pool.* TO pool@localhost IDENTIFIED BY '2543fwfw4rvg4r23ref23';
 FLUSH PRIVILEGES;
 USE pool;
 ALTER DATABASE pool DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
