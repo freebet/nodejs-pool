@@ -1,5 +1,5 @@
 [Unit]
-Description=XPP Daemon
+Description=Privatepay Daemon
 After=network.target
 
 [Service]
@@ -7,7 +7,7 @@ Type=forking
 GuessMainPID=no
 ExecStart=/usr/local/src/privatepay/build/release/bin/privatepayd --rpc-bind-ip 127.0.0.1 --detach
 Restart=always
-User=xppdaemon
+User=privatepaydaemon
 
 [Install]
 WantedBy=multi-user.target
