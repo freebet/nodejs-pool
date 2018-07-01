@@ -24,16 +24,16 @@ sudo mv libg* /usr/lib/
 cd ~
 sudo systemctl enable ntp
 cd /usr/local/src
-sudo git clone --recursive https://github.com/privatepay/privatepay
+sudo git clone --recursive https://github.com/GoPrivatePay/PrivatePay
 cd privatepay && git submodule init && git submodule update
 sudo make -j$(nproc)
-sudo cp ~/nodejs-pool/deployment/xpp.service /lib/systemd/system/
-sudo useradd -m xpp
-daemon -d /home/xppdaemon
-BLOCKCHAIN_DOWNLOAD_DIR=$(sudo -u xppdaemon mktemp -d)
+sudo cp ~/nodejs-pool/deployment/privatepay.service /lib/systemd/system/
+sudo useradd -m privatepaydaemon
+daemon -d /home/privatepaydaemon
+BLOCKCHAIN_DOWNLOAD_DIR=$(sudo -u privatepaydaemon mktemp -d)
 sudo systemctl daemon-reload
-sudo systemctl enable xpp
-sudo systemctl start xpp
+sudo systemctl enable privatepay
+sudo systemctl start privatepay
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
 source ~/.nvm/nvm.sh
 nvm install v8.9.3
