@@ -24,16 +24,16 @@ sudo mv libg* /usr/lib/
 cd ~
 sudo systemctl enable ntp
 cd /usr/local/src
-sudo git clone --recursive https://github.com/myztic-project/myztic
-cd myztic && git submodule init && git submodule update
+sudo git clone --recursive https://github.com/privatepay/privatepay
+cd privatepay && git submodule init && git submodule update
 sudo make -j$(nproc)
-sudo cp ~/nodejs-pool/deployment/myztic.service /lib/systemd/system/
-sudo useradd -m myztic
-daemon -d /home/myzticdaemon
-BLOCKCHAIN_DOWNLOAD_DIR=$(sudo -u myzticdaemon mktemp -d)
+sudo cp ~/nodejs-pool/deployment/xpp.service /lib/systemd/system/
+sudo useradd -m xpp
+daemon -d /home/xppdaemon
+BLOCKCHAIN_DOWNLOAD_DIR=$(sudo -u xppdaemon mktemp -d)
 sudo systemctl daemon-reload
-sudo systemctl enable myztic
-sudo systemctl start myztic
+sudo systemctl enable xpp
+sudo systemctl start xpp
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
 source ~/.nvm/nvm.sh
 nvm install v8.9.3
