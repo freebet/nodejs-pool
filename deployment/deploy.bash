@@ -25,7 +25,7 @@ cd ~
 sudo systemctl enable ntp
 cd /usr/local/src
 sudo git clone --recursive https://github.com/GoPrivatePay/PrivatePay
-cd privatepay && git submodule init && git submodule update
+cd PrivatePay && git submodule init && git submodule update
 sudo make -j$(nproc)
 sudo cp ~/nodejs-pool/deployment/privatepay.service /lib/systemd/system/
 sudo useradd -m privatepaydaemon
