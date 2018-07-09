@@ -1,9 +1,9 @@
-CREATE DATABASE pool;
-GRANT ALL ON pool.* TO pool@`127.0.0.1` IDENTIFIED BY '2543fwfw4rvg4r23ref23';
-GRANT ALL ON pool.* TO pool@localhost IDENTIFIED BY '2543fwfw4rvg4r23ref23';
+CREATE DATABASE pool1;
+GRANT ALL ON pool1.* TO pool1@`127.0.0.1` IDENTIFIED BY 'adr23r23d23def324r34r4fr';
+GRANT ALL ON pool1.* TO pool1@localhost IDENTIFIED BY 'adr23r23d23def324r34r4fr';
 FLUSH PRIVILEGES;
-USE pool;
-ALTER DATABASE pool DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE pool1;
+ALTER DATABASE pool1 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 CREATE TABLE `balance` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `last_edited` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -178,9 +178,9 @@ INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES 
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('pool', 'trustPenalty', '30', 'int', 'Number of shares that must be successful to be trusted, reset to this value if trust share is broken');
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('pool', 'retargetTime', '60', 'int', 'Time between difficulty retargets');
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('daemon', 'address', '127.0.0.1', 'string', 'Graft Daemon RPC IP');
-INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('daemon', 'port', '27445', 'int', 'Graft Daemon RPC Port');
+INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('daemon', 'port', '19184', 'int', 'Graft Daemon RPC Port');
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('wallet', 'address', '127.0.0.1', 'string', 'graft Daemon RPC Wallet IP');
-INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('wallet', 'port', '27447', 'int', 'Graft Daemon RPC Wallet Port');
+INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('wallet', 'port', '19186', 'int', 'Graft Daemon RPC Wallet Port');
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('rpc', 'https', 'false', 'bool', 'Enable RPC over SSL');
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('pool', 'maxDifficulty', '500000', 'int', 'Maximum difficulty for VarDiff');
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('pool', 'minDifficulty', '100', 'int', 'Minimum difficulty for VarDiff');
@@ -197,15 +197,15 @@ INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES 
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('payout', 'poolDevDonation', '0', 'float', 'Donation to pool developer');
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('payout', 'denom', '.0001', 'float', 'Minimum balance that will be paid out to.');
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('payout', 'blocksRequired', '60', 'int', 'Blocks required to validate a payout before it''s performed.');
-INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('general', 'sigDivisor', '1000000000000', 'int', 'Divisor for turning coin into human readable amounts ');
+INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('general', 'sigDivisor', '10000000000', 'int', 'Divisor for turning coin into human readable amounts ');
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('payout', 'feesForTXN', '1', 'int', 'Amount of GRF that is left from the fees to pay miner fees.');
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('payout', 'maxTxnValue', '500', 'int', 'Maximum amount of GRF to send in a single transaction');
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('payout', 'shapeshiftPair', 'GRF_btc', 'string', 'Pair to use in all shapeshift lookups for auto BTC payout');
-INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('general', 'coinCode', 'XPP', 'string', 'Coincode to be loaded up w/ the shapeshift getcoins argument.');
+INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('general', 'coinCode', 'SAFEX', 'string', 'Coincode to be loaded up w/ the shapeshift getcoins argument.');
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('general', 'allowBitcoin', 'false', 'bool', 'Allow the pool to auto-payout to BTC via ShapeShift');
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('payout', 'exchangeRate', '0', 'float', 'Current exchange rate');
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('payout', 'bestExchange', 'GRFto', 'string', 'Current best exchange');
-INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('payout', 'mixIn', '12', 'int', 'Mixin count for coins that support such things.');
+INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('payout', 'mixIn', '5', 'int', 'Mixin count for coins that support such things.');
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('general', 'statsBufferLength', '480', 'int', 'Number of items to be cached in the stats buffers.');
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('pps', 'enable', 'false', 'bool', 'Enable PPS or not');
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('pplns', 'shareMulti', '2', 'int', 'Multiply this times difficulty to set the N in PPLNS');
@@ -215,8 +215,8 @@ INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES 
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('payout', 'feeAddress', '', 'string', 'Address that pool fees are sent to.');
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('general', 'mailgunKey', '', 'string', 'MailGun API Key for notification');
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('general', 'mailgunURL', '', 'string', 'MailGun URL for notifications');
-INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('general', 'emailFrom', 'notification@mail.xpppool.com', 'string', 'From address for the notification emails');
-INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('general', 'testnet', 'false', 'bool', 'Does this pool use testnet?');
+INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('general', 'emailFrom', 'notification@mail.safexpool.net', 'string', 'From address for the notification emails');
+INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('general', 'testnet', 'true', 'bool', 'Does this pool use testnet?');
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('pplns', 'enable', 'true', 'bool', 'Enable PPLNS on the pool.');
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('solo', 'enable', 'false', 'bool', 'Enable SOLO mining on the pool');
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('payout', 'feeSlewAmount', '.015', 'float', 'Amount to charge for the txn fee');
@@ -229,7 +229,7 @@ INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES 
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('email', 'workerNotHashingSubject', 'Status of your worker(s)', 'string', 'Subject of email sent to miner when worker stops hashing');
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('email', 'workerStartHashingBody', 'Your worker: %(worker)s has started submitting hashes at: %(timestamp)s UTC\n', 'string', 'Email sent to the miner when their worker starts hashing');
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('email', 'workerStartHashingSubject', 'Status of your worker(s)', 'string', 'Subject of email sent to miner when worker starts hashing');
-INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('general', 'emailSig', 'XPPPool.Com', 'string', 'Signature line for the emails.');
+INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('general', 'emailSig', 'https://SafexPool.NET', 'string', 'Signature line for the emails.');
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('payout', 'timer', '30', 'int', 'Number of minutes between main payment daemon cycles');
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('payout', 'timerRetry', '10', 'int', 'Number of minutes between payment daemon retrying due to not enough funds');
 INSERT INTO pool.config (module, item, item_value, item_type, Item_desc) VALUES ('payout', 'priority', '1', 'int', 'Payout priority setting.');
