@@ -1,13 +1,13 @@
 [Unit]
-Description=Privatepay Daemon
+Description=Safex Daemon
 After=network.target
 
 [Service]
 Type=forking
 GuessMainPID=no
-ExecStart=/usr/local/src/privatepay/build/release/bin/privatepayd --rpc-bind-ip 127.0.0.1 --detach
+ExecStart=/usr/local/src/safexcore/build/release/bin/safexd --rpc-bind-ip 127.0.0.1 --detach
 Restart=always
-User=privatepaydaemon
+User=safexdaemon
 
 [Install]
 WantedBy=multi-user.target
