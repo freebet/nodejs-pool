@@ -24,16 +24,16 @@ sudo mv libg* /usr/lib/
 cd ~
 sudo systemctl enable ntp
 cd /usr/local/src
-sudo git clone --recursive https://github.com/GoPrivatePay/PrivatePay
-cd PrivatePay && git submodule init && git submodule update
+sudo git clone https://github.com/safex/safexcore.git
+cd safexcore
 sudo make -j$(nproc)
-sudo cp ~/nodejs-pool/deployment/privatepay.service /lib/systemd/system/
-sudo useradd -m privatepaydaemon
-daemon -d /home/privatepaydaemon
-BLOCKCHAIN_DOWNLOAD_DIR=$(sudo -u privatepaydaemon mktemp -d)
+sudo cp ~/nodejs-pool/deployment/safex.service /lib/systemd/system/
+sudo useradd -m safexdaemon
+daemon -d /home/safexdaemon
+BLOCKCHAIN_DOWNLOAD_DIR=$(sudo -u safexdaemon mktemp -d)
 sudo systemctl daemon-reload
-sudo systemctl enable privatepay
-sudo systemctl start privatepay
+sudo systemctl enable safex
+sudo systemctl start safex
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
 source ~/.nvm/nvm.sh
 nvm install v8.9.3
