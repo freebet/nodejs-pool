@@ -3,12 +3,12 @@
   "bind_ip": "0.0.0.0",
   "hostname": "95.179.152.81",
   "db_storage_path": "CHANGEME",
-  "coin": "mzt",
+  "coin": "safex",
   "mysql": {
     "connectionLimit": 20,
     "host": "127.0.0.1",
-    "database": "pool1",
-    "user": "pool1",
+    "database": "pool",
+    "user": "pool",
     "password": "adr23r23d23def324r34r4fr"
   }
 }
