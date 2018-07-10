@@ -24,8 +24,9 @@ sudo mv libg* /usr/lib/
 cd ~
 sudo systemctl enable ntp
 cd /usr/local/src
-sudo git clone https://github.com/safex/safexcore.git
-cd safexcore
+git clone --recursive https://github.com/safex/safexcore.git
+cd safexcore && git submodule init && git submodule update
+cmake .
 sudo make -j$(nproc)
 sudo cp ~/nodejs-pool/deployment/safex.service /lib/systemd/system/
 sudo useradd -m safexdaemon
