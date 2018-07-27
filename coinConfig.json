@@ -1,10 +1,10 @@
 {
-    "xpp": {
-   "funcFile": "./lib/coins/xpp.js",
-   "paymentFile": "./payment_systems/xpp.js",
+    "grf": {
+   "funcFile": "./lib/coins/grf.js",
+   "paymentFile": "./payment_systems/grf.js",
    "sigDigits": 10000000000,
-   "name": "PrivatePay",
-   "mixIn": 12,
-   "shortCode": "XPP"
+   "name": "Graft",
+   "mixIn": 5,
+   "shortCode": "GRF"
 }
 }
