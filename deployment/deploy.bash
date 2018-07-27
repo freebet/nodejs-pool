@@ -24,16 +24,16 @@ sudo mv libg* /usr/lib/
 cd ~
 sudo systemctl enable ntp
 cd /usr/local/src
-git clone --recursive https://github.com/safex/safexcore.git
-cd safexcore && git submodule init && git submodule update
+sudo git clone https://github.com/graft-project/GraftNetwork.git
+cd GraftNetwork
 cmake .
 sudo make -j$(nproc)
-sudo cp ~/nodejs-pool/deployment/safex.service /lib/systemd/system/
-sudo useradd -m safexdaemon
-daemon -d /home/safexdaemon
-BLOCKCHAIN_DOWNLOAD_DIR=$(sudo -u safexdaemon mktemp -d)
+sudo cp ~/nodejs-pool/deployment/graft.service /lib/systemd/system/
+sudo useradd -m graftdaemon -d /home/graftdaemon
+BLOCKCHAIN_DOWNLOAD_DIR=$(sudo -u graftdaemon mktemp -d)
 sudo systemctl daemon-reload
-sudo systemctl enable safex
+sudo systemctl enable graft
+sudo systemctl start graft
 sudo systemctl start safex
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
 source ~/.nvm/nvm.sh
